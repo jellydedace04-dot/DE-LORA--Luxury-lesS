@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DE'LORA Automotive Group | Luxury Automotive E-Commerce Platform</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-obsidian: #08080a;
+            --bg-card: #121216;
+            --bg-modal: #0d0d11;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa820a;
+            --text-main: #f5f5f7;
+            --text-muted: #a1a1a6;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.15);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-logo, .nav-link {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-obsidian);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 4px;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 10, 0.94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--gold-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .brand-logo span {
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+            overflow-x: auto;
+            max-width: 55vw;
+            padding-bottom: 5px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: var(--transition);
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 18px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover {
+            color: var(--gold-primary);
+        }
+
+        .badge {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--gold-primary);
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 50%;
+            padding: 2px 6px;
+        }
+
+        /* BUTTONS */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-gold:hover {
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            padding: 11px 22px;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.15);
+            color: #fff;
+        }
+
+        /* MAIN SECTIONS */
+        main {
+            margin-top: 75px;
+            min-height: calc(100vh - 75px - 250px);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px 30px;
+            max-width: 1600px;
+            margin: 0 auto;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 30px;
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* HERO BANNER */
+        .hero {
+            position: relative;
+            height: 65vh;
+            background: linear-gradient(rgba(8,8,10,0.4), rgba(8,8,10,0.9)), url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 1px solid var(--border-gold);
+            margin-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 50px;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--gold-light);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* SEARCH & FILTER CONTROLS */
+        .filter-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--bg-obsidian);
+            border: 1px solid var(--border-gold);
+            padding: 12px 15px 12px 40px;
+            color: #fff;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+        }
+
+        .filter-select {
+            background: var(--bg-obsidian);
+            border: 1px solid var(--border-subtle);
+            color: #fff;
+            padding: 12px 15px;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            border-color: var(--gold-primary);
+        }
+
+        /* VEHICLE GRID & CARDS */
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 25px;
+        }
+
+        .vehicle-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vehicle-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .vehicle-img-wrap {
+            position: relative;
+            height: 210px;
+            width: 100%;
+            overflow: hidden;
+            background: #18181f;
+        }
+
+        .vehicle-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .vehicle-card:hover .vehicle-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .fav-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(8,8,10,0.7);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .fav-badge.active, .fav-badge:hover {
+            color: #e74c3c;
+            background: #fff;
+        }
+
+        .vehicle-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vehicle-brand {
+            color: var(--gold-primary);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .vehicle-model {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .vehicle-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+
+        .vehicle-specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 10px 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .spec-item span {
+            display: block;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .spec-item strong {
+            font-size: 12px;
+            color: var(--text-main);
+        }
+
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-btns-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        /* MODALS */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-modal);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 550px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: var(--gold-primary);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: var(--gold-light);
+        }
+
+        .form-control {
+            width: 100%;
+            background: var(--bg-obsidian);
+            border: 1px solid var(--border-subtle);
+            padding: 11px;
+            color: #fff;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold-primary);
+        }
+
+        /* DRAWER / SIDE CART */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100%;
+            background: var(--bg-modal);
+            border-left: 1px solid var(--border-gold);
+            z-index: 2001;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .cart-item-price {
+            color: var(--gold-primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .qty-btn {
+            background: var(--bg-obsidian);
+            border: 1px solid var(--border-subtle);
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+        }
+
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .cart-summary-row.total {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--gold-primary);
+            border-top: 1px dashed var(--border-subtle);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        /* GALLERY & MEDIA */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 240px;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(8,8,10,0.92));
+            color: #fff;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* ORDER TRACKING TIMELINE */
+        .order-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .order-timeline::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--border-subtle);
+            z-index: 1;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 2;
+            background: var(--bg-card);
+            padding: 0 8px;
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-obsidian);
+            border: 2px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 6px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .timeline-step.completed .step-icon {
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
+            color: #000;
+        }
+
+        .timeline-step.completed label {
+            color: var(--gold-light);
+        }
+
+        /* COMPARISON TABLE */
+        .compare-table-wrap {
+            overflow-x: auto;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--bg-card);
+        }
+
+        .compare-table th, .compare-table td {
+            border: 1px solid var(--border-subtle);
+            padding: 14px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .compare-table th {
+            background: var(--bg-obsidian);
+            color: var(--gold-primary);
+        }
+
+        /* OWNERSHIP CARDS */
+        .owners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .owner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .owner-card i {
+            font-size: 40px;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #040405;
+            border-top: 1px solid var(--border-gold);
+            padding: 40px 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 20px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            header { padding: 15px 20px; }
+            .hero-content h1 { font-size: 36px; }
+            .cart-drawer { width: 100%; right: -100%; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { max-width: 100%; }
+            .vehicle-specs { grid-template-columns: repeat(1, 1fr); }
+            .order-timeline { flex-direction: column; gap: 15px; }
+            .order-timeline::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <a href="#" class="brand-logo" onclick="switchTab('home')">
+            <i class="fa-solid fa-crown"></i> DE'LORA <span>GROUP</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-link active" onclick="switchTab('home')">Home</a></li>
+                <li><a class="nav-link" onclick="switchTab('showroom')">Showroom</a></li>
+                <li><a class="nav-link" onclick="switchTab('products')">Products</a></li>
+                <li><a class="nav-link" onclick="switchTab('supercars')">Supercars</a></li>
+                <li><a class="nav-link" onclick="switchTab('hypercars')">Hypercars</a></li>
+                <li><a class="nav-link" onclick="switchTab('luxury')">Luxury</a></li>
+                <li><a class="nav-link" onclick="switchTab('electric')">Electric</a></li>
+                <li><a class="nav-link" onclick="switchTab('suvs')">SUVs</a></li>
+                <li><a class="nav-link" onclick="switchTab('parts')">Parts & Accessories</a></li>
+                <li><a class="nav-link" onclick="switchTab('gallery')">Gallery</a></li>
+                <li><a class="nav-link" onclick="switchTab('compare')">Compare</a></li>
+                <li><a class="nav-link" onclick="switchTab('financing')">Financing</a></li>
+                <li><a class="nav-link" onclick="switchTab('services')">Services</a></li>
+                <li><a class="nav-link" onclick="switchTab('my-garage')">My Garage</a></li>
+                <li><a class="nav-link" onclick="switchTab('my-orders')">My Orders</a></li>
+                <li><a class="nav-link" onclick="switchTab('about')">About Us</a></li>
+                <li><a class="nav-link" onclick="switchTab('contact')">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn" onclick="openProtectedCart()" title="Shopping Garage Cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="badge" id="cartBadge">0</span>
+            </button>
+            
+            <div id="userAccountSection">
+                <button class="btn-outline" onclick="openLoginModal()">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main>
+
+        <!-- HOME TAB -->
+        <section id="tab-home" class="tab-content active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>AUTOMOTIVE PERFECTION</h1>
+                    <p>Redefining Luxury & High-Performance Engineering</p>
+                    <button class="btn-gold" onclick="switchTab('showroom')">Explore Flagship Fleet</button>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2 class="section-title">FEATURED FLEET COLLECTION</h2>
+                <p class="section-subtitle">Browse all 20 handcrafted luxury and high-performance masterpieces.</p>
+            </div>
+
+            <!-- SEARCH & FILTER -->
+            <div class="filter-container">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="homeSearch" placeholder="Search brand, model, engine, year..." oninput="filterHomeVehicles()">
+                </div>
+                <select class="filter-select" id="homeSort" onchange="filterHomeVehicles()">
+                    <option value="default">Sort By: Featured</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="hp">Horsepower: High to Low</option>
+                </select>
+            </div>
+
+            <!-- 20 HOME VEHICLES GRID -->
+            <div class="vehicle-grid" id="homeVehicleGrid">
+                <!-- JS populated -->
+            </div>
+        </section>
+
+        <!-- SHOWROOM TAB -->
+        <section id="tab-showroom" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">THE SHOWROOM FLEET</h2>
+                <p class="section-subtitle">Exquisite curation of world-class supercars and luxury sedans.</p>
+            </div>
+            <div class="vehicle-grid" id="showroomVehicleGrid"></div>
+        </section>
+
+        <!-- PRODUCTS TAB -->
+        <section id="tab-products" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">ALL AUTOMOTIVE PRODUCTS</h2>
+                <p class="section-subtitle">Complete collection of vehicles, tuning kits, and luxury automotive upgrades.</p>
+            </div>
+            <div class="vehicle-grid" id="productsVehicleGrid"></div>
+        </section>
+
+        <!-- SUPERCARS TAB -->
+        <section id="tab-supercars" class="tab-content">
+            <div class="section-header"><h2 class="section-title">SUPERCARS</h2></div>
+            <div class="vehicle-grid" id="supercarsGrid"></div>
+        </section>
+
+        <!-- HYPERCARS TAB -->
+        <section id="tab-hypercars" class="tab-content">
+            <div class="section-header"><h2 class="section-title">HYPERCARS</h2></div>
+            <div class="vehicle-grid" id="hypercarsGrid"></div>
+        </section>
+
+        <!-- LUXURY TAB -->
+        <section id="tab-luxury" class="tab-content">
+            <div class="section-header"><h2 class="section-title">LUXURY SEDANS & TOURING</h2></div>
+            <div class="vehicle-grid" id="luxuryGrid"></div>
+        </section>
+
+        <!-- ELECTRIC TAB -->
+        <section id="tab-electric" class="tab-content">
+            <div class="section-header"><h2 class="section-title">ELECTRIC PERFORMANCE</h2></div>
+            <div class="vehicle-grid" id="electricGrid"></div>
+        </section>
+
+        <!-- SUVS TAB -->
+        <section id="tab-suvs" class="tab-content">
+            <div class="section-header"><h2 class="section-title">LUXURY SUVS</h2></div>
+            <div class="vehicle-grid" id="suvsGrid"></div>
+        </section>
+
+        <!-- PARTS & ACCESSORIES TAB -->
+        <section id="tab-parts" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">PARTS & ACCESSORIES</h2>
+                <p class="section-subtitle">Factory original upgrades, aerodynamics, exhaust systems, and forged wheels.</p>
+            </div>
+            <div class="filter-container">
+                <select class="filter-select" id="partsCategorySelect" onchange="renderParts()">
+                    <option value="all">All Categories</option>
+                    <option value="Wheels">Wheels (10 items)</option>
+                    <option value="Exhaust">Exhaust Systems (10 items)</option>
+                    <option value="Aero">Aerodynamics (10 items)</option>
+                    <option value="Brakes">Brakes & Suspension (10 items)</option>
+                    <option value="Interior">Interior Bespoke (10 items)</option>
+                </select>
+            </div>
+            <div class="vehicle-grid" id="partsGrid"></div>
+        </section>
+
+        <!-- GALLERY TAB -->
+        <section id="tab-gallery" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">MEDIA & DESIGN GALLERY</h2>
+                <p class="section-subtitle">High-definition automotive photography, track engineering, and bespoke interiors.</p>
+            </div>
+            <div class="filter-container">
+                <select class="filter-select" id="galleryFilterSelect" onchange="renderGallery()">
+                    <option value="all">All Categories</option>
+                    <option value="Hypercars">Hypercars</option>
+                    <option value="Supercars">Supercars</option>
+                    <option value="Luxury">Luxury</option>
+                    <option value="Track">Track</option>
+                    <option value="Interior">Interior</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Lifestyle">Lifestyle</option>
+                    <option value="Showroom">Showroom</option>
+                </select>
+            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </section>
+
+        <!-- COMPARE TAB -->
+        <section id="tab-compare" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">VEHICLE COMPARISON</h2>
+                <p class="section-subtitle">Compare technical specifications side-by-side (2 to 4 vehicles).</p>
+            </div>
+            <div id="compareTableContainer" class="compare-table-wrap"></div>
+        </section>
+
+        <!-- FINANCING TAB -->
+        <section id="tab-financing" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">FINANCING CALCULATOR</h2>
+                <p class="section-subtitle">Estimate bespoke luxury payment structures.</p>
+            </div>
+            <div style="max-width: 600px; margin: 0 auto; background: var(--bg-card); padding: 30px; border: 1px solid var(--border-gold); border-radius: 8px;">
+                <div class="form-group">
+                    <label>Vehicle Price (₱)</label>
+                    <input type="number" id="finPrice" class="form-control" value="14500000" oninput="calcFinancing()">
+                </div>
+                <div class="form-group">
+                    <label>Down Payment (₱)</label>
+                    <input type="number" id="finDown" class="form-control" value="2900000" oninput="calcFinancing()">
+                </div>
+                <div class="form-group">
+                    <label>Term Length (Months)</label>
+                    <select id="finTerm" class="form-control" onchange="calcFinancing()">
+                        <option value="36">36 Months</option>
+                        <option value="48">48 Months</option>
+                        <option value="60" selected>60 Months</option>
+                        <option value="72">72 Months</option>
+                    </select>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; background: var(--bg-obsidian); text-align: center; border-radius: 4px;">
+                    <span style="color: var(--text-muted); font-size: 12px;">ESTIMATED MONTHLY PAYMENT</span>
+                    <h2 id="finMonthly" style="color: var(--gold-primary); font-size: 32px; margin-top: 5px;">₱245,680 / mo</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES TAB -->
+        <section id="tab-services" class="tab-content">
+            <div class="section-header"><h2 class="section-title">DE'LORA CONCIERGE SERVICES</h2></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="background: var(--bg-card); padding: 25px; border: 1px solid var(--border-subtle); border-radius: 6px;">
+                    <i class="fa-solid fa-truck-airplane" style="font-size: 30px; color: var(--gold-primary); margin-bottom: 15px;"></i>
+                    <h3>Global White-Glove Delivery</h3>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-top: 10px;">Enclosed vehicle transport directly to your private estate or hangar worldwide.</p>
+                </div>
+                <div style="background: var(--bg-card); padding: 25px; border: 1px solid var(--border-subtle); border-radius: 6px;">
+                    <i class="fa-solid fa-wrench" style="font-size: 30px; color: var(--gold-primary); margin-bottom: 15px;"></i>
+                    <h3>Bespoke Customization</h3>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-top: 10px;">Custom interior leatherwork, armor plating, and performance ECU remapping.</p>
+                </div>
+                <div style="background: var(--bg-card); padding: 25px; border: 1px solid var(--border-subtle); border-radius: 6px;">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 30px; color: var(--gold-primary); margin-bottom: 15px;"></i>
+                    <h3>Trackside Support</h3>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-top: 10px;">Dedicated pit crew and telemetry engineers for private circuit events.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY GARAGE TAB -->
+        <section id="tab-my-garage" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">MY GARAGE & WISHLIST</h2>
+                <p class="section-subtitle">Your saved vehicles and active garage cart items.</p>
+            </div>
+            <div id="garageContent"></div>
+        </section>
+
+        <!-- MY ORDERS TAB -->
+        <section id="tab-my-orders" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">ORDER HISTORY & TRACKING</h2>
+                <p class="section-subtitle">Real-time status of your vehicle orders and accessory shipments.</p>
+            </div>
+            <div id="ordersContent"></div>
+        </section>
+
+        <!-- ABOUT US TAB -->
+        <section id="tab-about" class="tab-content">
+            <div class="section-header"><h2 class="section-title">ABOUT DE'LORA AUTOMOTIVE GROUP</h2></div>
+            <p style="max-width: 800px; margin: 0 auto 30px; text-align: center; color: var(--text-muted);">
+                DE'LORA Automotive Group represents the apex of automotive curation. We connect rare hypercars, ultra-luxury sedans, and performance components with discerning collectors globally.
+            </p>
+
+            <div class="section-header" style="margin-top: 40px;">
+                <h3 style="color: var(--gold-primary); font-size: 22px;">FOUNDERS & OWNERSHIP</h3>
+            </div>
+            <div class="owners-grid">
+                <div class="owner-card">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h3 style="color: #fff;">Jelly Mae L. Dedace</h3>
+                    <p style="color: var(--gold-primary); font-size: 13px; margin-bottom: 10px;">Co-Owner & Executive Director</p>
+                    <p style="color: var(--text-muted); font-size: 13px;"><i class="fa-solid fa-phone"></i> 09703758766</p>
+                    <p style="color: var(--text-muted); font-size: 13px;"><i class="fa-solid fa-envelope"></i> jellydedace04@gmail.com</p>
+                </div>
+                <div class="owner-card">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3 style="color: #fff;">Jamaica S. Dominguez</h3>
+                    <p style="color: var(--gold-primary); font-size: 13px; margin-bottom: 10px;">Co-Owner & Managing Director</p>
+                    <p style="color: var(--text-muted); font-size: 13px;"><i class="fa-solid fa-phone"></i> 09687215497</p>
+                    <p style="color: var(--text-muted); font-size: 13px;"><i class="fa-solid fa-envelope"></i> jamaica.dominguez01@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT US TAB -->
+        <section id="tab-contact" class="tab-content">
+            <div class="section-header"><h2 class="section-title">CONTACT CLIENT SERVICES</h2></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                <div style="background: var(--bg-card); padding: 30px; border-radius: 6px; border: 1px solid var(--border-subtle);">
+                    <h3 style="color: var(--gold-primary); margin-bottom: 20px;">DIRECT EXECUTIVE CONTACTS</h3>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: #fff;">Jelly Mae L. Dedace</h4>
+                        <p style="color: var(--text-muted); font-size: 13px;">Phone: 09703758766</p>
+                        <p style="color: var(--text-muted); font-size: 13px;">Email: jellydedace04@gmail.com</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: #fff;">Jamaica S. Dominguez</h4>
+                        <p style="color: var(--text-muted); font-size: 13px;">Phone: 09687215497</p>
+                        <p style="color: var(--text-muted); font-size: 13px;">Email: jamaica.dominguez01@gmail.com</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-card); padding: 30px; border-radius: 6px; border: 1px solid var(--border-subtle);">
+                    <h3 style="color: var(--gold-primary); margin-bottom: 15px;">SEND AN INQUIRY</h3>
+                    <div class="form-group"><label>Full Name</label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label>Email</label><input type="email" class="form-control"></div>
+                    <div class="form-group"><label>Message</label><textarea class="form-control" rows="4"></textarea></div>
+                    <button class="btn-gold" style="width: 100%;">Submit Inquiry</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SHOPPING CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-garage"></i> DE'LORA GARAGE CART</h3>
+            <button class="modal-close" onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-body" id="cartItemsContainer"></div>
+        <div class="cart-footer">
+            <div class="cart-summary-row"><span>Subtotal:</span><span id="cartSubtotal">₱0</span></div>
+            <div class="cart-summary-row"><span>Delivery / Logistics:</span><span id="cartDelivery">₱250,000</span></div>
+            <div class="cart-summary-row total"><span>Total:</span><span id="cartTotal">₱0</span></div>
+            <button class="btn-gold" style="width: 100%; margin-top: 15px;" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- AUTHENTICATION MODAL -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('authModal')"><i class="fa-solid fa-xmark"></i></button>
+            <div id="authForms">
+                <h2 style="color: var(--gold-primary); margin-bottom: 20px; text-align: center;" id="authTitle">CLIENT LOGIN</h2>
+                <form id="loginForm" onsubmit="handleAuthSubmit(event)">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="authEmail" class="form-control" required value="vip@delora.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="authPassword" class="form-control" required value="password123">
+                    </div>
+                    <button type="submit" class="btn-gold" style="width: 100%;">SIGN IN</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 13px; color: var(--text-muted);">
+                        Don't have an account? <a style="color: var(--gold-primary); cursor: pointer;" onclick="toggleAuthMode()">Register Now</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- STRICT LOGIN REQUIRED MODAL -->
+    <div class="modal-overlay" id="loginRequiredModal">
+        <div class="modal-content" style="text-align: center;">
+            <i class="fa-solid fa-lock" style="font-size: 48px; color: var(--gold-primary); margin-bottom: 15px;"></i>
+            <h2 style="color: #fff; margin-bottom: 10px;">LOGIN REQUIRED</h2>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">You must sign in to your DE'LORA account before adding this item to your garage cart or proceeding with purchases.</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn-gold" onclick="closeModal('loginRequiredModal'); openLoginModal();">LOGIN</button>
+                <button class="btn-outline" onclick="closeModal('loginRequiredModal'); openLoginModal(true);">CREATE ACCOUNT</button>
+                <button class="btn-outline" style="border-color: #555; color: #888;" onclick="closeModal('loginRequiredModal')">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VEHICLE DETAILS MODAL -->
+    <div class="modal-overlay" id="vehicleDetailsModal">
+        <div class="modal-content" style="max-width: 800px;" id="vehicleDetailsBody"></div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <button class="modal-close" onclick="closeModal('checkoutModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h2 style="color: var(--gold-primary); margin-bottom: 20px;">CHECKOUT & PAYMENT</h2>
+            <form onsubmit="handleCheckoutSubmit(event)">
+                <div class="form-group"><label>Full Name</label><input type="text" class="form-control" required value="Alexander Vance"></div>
+                <div class="form-group"><label>Delivery Address</label><input type="text" class="form-control" required value="Forbes Park, Makati City, Metro Manila"></div>
+                <div class="form-group">
+                    <label>Payment Option</label>
+                    <select class="filter-select" style="width: 100%;" id="paymentMethodSelect">
+                        <option value="Credit Card">Credit / Debit Card</option>
+                        <option value="Bank Transfer">Bank Wire Transfer</option>
+                        <option value="E-Wallet">E-Wallet (GCash / Maya)</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Card / Account Number</label><input type="text" class="form-control" required value="•••• •••• •••• 8842"></div>
+                <div style="display: flex; gap: 10px;">
+                    <div class="form-group" style="flex:1;"><label>Expiry</label><input type="text" class="form-control" value="12/28"></div>
+                    <div class="form-group" style="flex:1;"><label>CVV</label><input type="password" class="form-control" value="888"></div>
+                </div>
+                <button type="submit" class="btn-gold" style="width: 100%; margin-top: 15px;">CONFIRM & PLACE ORDER</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <a href="#" class="brand-logo" style="margin-bottom: 15px;"><i class="fa-solid fa-crown"></i> DE'LORA</a>
+                <p style="color: var(--text-muted); font-size: 13px;">The pinnacle of hypercar acquisition, bespoke engineering, and luxury curation.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--gold-primary); margin-bottom: 15px;">EXECUTIVE OWNERSHIP</h4>
+                <p style="color: #fff; font-size: 13px;"><strong>Jelly Mae L. Dedace</strong></p>
+                <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 10px;">09703758766 | jellydedace04@gmail.com</p>
+                <p style="color: #fff; font-size: 13px;"><strong>Jamaica S. Dominguez</strong></p>
+                <p style="color: var(--text-muted); font-size: 12px;">09687215497 | jamaica.dominguez01@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DE'LORA Automotive Group. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // GLOBAL FALLBACK IMAGE URL
+        const FALLBACK_IMG = "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80";
+
+        // APP STATE
+        let currentUser = JSON.parse(localStorage.getItem('delora_current_user')) || null;
+        let pendingAction = null;
+        let compareList = [];
+
+        // DATASETS: 20 HOME VEHICLES (h1 through h20) with Realistic Philippine Peso (₱) Pricing (1 Million Up)
+        const homeVehicles = [
+            { id: 'h1', brand: 'Bugatti', model: 'Chiron Super Sport', price: 220000000, hp: 1578, speed: '273 mph', accel: '2.2s', type: 'hypercars', img: 'https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h2', brand: 'Koenigsegg', model: 'Jesko Absolut', price: 195000000, hp: 1600, speed: '310 mph', accel: '2.5s', type: 'hypercars', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h3', brand: 'Pagani', model: 'Huayra Roadster BC', price: 205000000, hp: 791, speed: '238 mph', accel: '2.8s', type: 'hypercars', img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h4', brand: 'Ferrari', model: 'SF90 Stradale', price: 36000000, hp: 986, speed: '211 mph', accel: '2.5s', type: 'supercars', img: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h5', brand: 'Lamborghini', model: 'Revuelto V12', price: 34500000, hp: 1001, speed: '217 mph', accel: '2.5s', type: 'supercars', img: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h6', brand: 'McLaren', model: '750S Spider', price: 19800000, hp: 740, speed: '206 mph', accel: '2.7s', type: 'supercars', img: 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h7', brand: 'Rolls-Royce', model: 'Phantom VIII', price: 42000000, hp: 563, speed: '155 mph', accel: '5.1s', type: 'luxury', img: 'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h8', brand: 'Bentley', model: 'Continental GT Speed', price: 17500000, hp: 650, speed: '208 mph', accel: '3.5s', type: 'luxury', img: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h9', brand: 'Porsche', model: '911 GT3 RS', price: 14200000, hp: 518, speed: '184 mph', accel: '3.0s', type: 'supercars', img: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h10', brand: 'Aston Martin', model: 'DBS 770 Ultimate', price: 22500000, hp: 759, speed: '211 mph', accel: '3.2s', type: 'supercars', img: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h11', brand: 'Rimac', model: 'Nevera EV', price: 125000000, hp: 1914, speed: '258 mph', accel: '1.81s', type: 'electric', img: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h12', brand: 'Lamborghini', model: 'Urus Performante', price: 16500000, hp: 657, speed: '190 mph', accel: '3.3s', type: 'suvs', img: 'https://images.unsplash.com/photo-1541348263662-e068662d82af?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h13', brand: 'Rolls-Royce', model: 'Cullinan Black Badge', price: 38000000, hp: 592, speed: '155 mph', accel: '4.9s', type: 'suvs', img: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h14', brand: 'Mercedes-AMG', model: 'ONE Hypercar', price: 156000000, hp: 1049, speed: '219 mph', accel: '2.9s', type: 'hypercars', img: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h15', brand: 'Porsche', model: 'Taycan Turbo S', price: 11500000, hp: 750, speed: '161 mph', accel: '2.6s', type: 'electric', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h16', brand: 'Maserati', model: 'MC20 Cielo', price: 15800000, hp: 621, speed: '202 mph', accel: '2.9s', type: 'supercars', img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h17', brand: 'Ferrari', model: 'Purosangue SUV', price: 23500000, hp: 715, speed: '193 mph', accel: '3.3s', type: 'suvs', img: 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h18', brand: 'Aston Martin', model: 'Valkyrie', price: 200000000, hp: 1160, speed: '250 mph', accel: '2.5s', type: 'hypercars', img: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h19', brand: 'Bentley', model: 'Bentayga EWB', price: 14800000, hp: 542, speed: '180 mph', accel: '4.5s', type: 'suvs', img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80' },
+            { id: 'h20', brand: 'Tesla', model: 'Roadster Founders', price: 14500000, hp: 1200, speed: '250+ mph', accel: '1.9s', type: 'electric', img: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80' }
+        ];
+
+        // GALLERY DATASET: g1 through g15
+        const galleryItems = [
+            { id: 'g1', title: 'Bugatti Aerodynamics', category: 'Hypercars', img: 'https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g2', title: 'Rolls-Royce Bespoke Starlight', category: 'Luxury', img: 'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g3', title: 'Ferrari V12 Engine Bay', category: 'Engineering', img: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g4', title: 'GT3 RS Carbon Wing', category: 'Track', img: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g5', title: 'Monaco Showroom Display', category: 'Showroom', img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g6', title: 'Hand-stitched Italian Leather', category: 'Interior', img: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g7', title: 'Revuelto Launch Night', category: 'Supercars', img: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g8', title: 'Rimac Battery Architecture', category: 'Engineering', img: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g9', title: 'Sunset Private Jet Runway Test', category: 'Lifestyle', img: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g10', title: 'Forged Gold Wheels Detail', category: 'Engineering', img: 'https://images.unsplash.com/photo-1541348263662-e068662d82af?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g11', title: 'Carbon Fiber Monocoque', category: 'Track', img: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g12', title: 'Lamborghini Urus Offroad', category: 'Showroom', img: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g13', title: 'Custom Titanium Exhaust', category: 'Engineering', img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g14', title: 'Chiron Diamond Interior', category: 'Interior', img: 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=800&q=80' },
+            { id: 'g15', title: 'Night Cruise Riviera', category: 'Lifestyle', img: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80' }
+        ];
+
+        // PARTS DATASET with Realistic Philippine Peso (₱) Pricing (1 Million Up)
+        const partsCategories = ['Wheels', 'Exhaust', 'Aero', 'Brakes', 'Interior'];
+        const partsData = [];
+        partsCategories.forEach(cat => {
+            for(let i=1; i<=10; i++) {
+                partsData.push({
+                    id: `p_${cat}_${i}`,
+                    category: cat,
+                    name: `${cat} Performance Upgrade v${i}.0`,
+                    price: 950000 + (150000 * i),
+                    img: 'https://images.unsplash.com/photo-1541348263662-e068662d82af?auto=format&fit=crop&w=800&q=80'
+                });
+            }
+        });
+
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            renderUserAccountUI();
+            renderHomeVehicles(homeVehicles);
+            renderCategoryGrids();
+            renderParts();
+            renderGallery();
+            renderCompareTable();
+        });
+
+        // NAVIGATION
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+            
+            const target = document.getElementById(`tab-${tabId}`);
+            if(target) {
+                target.classList.add('active');
+                if(tabId === 'my-garage') renderGaragePage();
+                if(tabId === 'my-orders') renderOrdersPage();
+            }
+        }
+
+        // CARD RENDERER
+        function createVehicleCard(car) {
+            const isFav = isFavorite(car.id);
+            return `
+                <div class="vehicle-card">
+                    <div class="vehicle-img-wrap">
+                        <img src="${car.img}" alt="${car.brand} ${car.model}" loading="lazy" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';">
+                        <div class="fav-badge ${isFav ? 'active' : ''}" onclick="toggleFavoriteGuard('${car.id}')" title="Save to Wishlist">
+                            <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-brand">${car.brand}</span>
+                        <h3 class="vehicle-model">${car.model}</h3>
+                        <div class="vehicle-price">₱${car.price.toLocaleString()}</div>
+                        <div class="vehicle-specs">
+                            <div class="spec-item"><span>POWER</span><strong>${car.hp} HP</strong></div>
+                            <div class="spec-item"><span>TOP SPEED</span><strong>${car.speed}</strong></div>
+                            <div class="spec-item"><span>0-60 MPH</span><strong>${car.accel}</strong></div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-gold" onclick="addToCartGuard('${car.id}', '${car.brand} ${car.model}', ${car.price}, '${car.img}')">
+                                <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+                            </button>
+                            <div class="card-btns-row">
+                                <button class="btn-outline" onclick="openVehicleDetails('${car.id}')">Details</button>
+                                <button class="btn-outline" onclick="toggleCompare('${car.id}')">Compare</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderHomeVehicles(data) {
+            document.getElementById('homeVehicleGrid').innerHTML = data.map(car => createVehicleCard(car)).join('');
+        }
+
+        function filterHomeVehicles() {
+            const query = document.getElementById('homeSearch').value.toLowerCase();
+            const sort = document.getElementById('homeSort').value;
+            let filtered = homeVehicles.filter(c => c.brand.toLowerCase().includes(query) || c.model.toLowerCase().includes(query));
+            
+            if(sort === 'low') filtered.sort((a,b) => a.price - b.price);
+            if(sort === 'high') filtered.sort((a,b) => b.price - a.price);
+            if(sort === 'hp') filtered.sort((a,b) => b.hp - a.hp);
+
+            renderHomeVehicles(filtered);
+        }
+
+        function renderCategoryGrids() {
+            document.getElementById('showroomVehicleGrid').innerHTML = homeVehicles.slice(0, 10).map(c => createVehicleCard(c)).join('');
+            document.getElementById('productsVehicleGrid').innerHTML = homeVehicles.map(c => createVehicleCard(c)).join('');
+            document.getElementById('supercarsGrid').innerHTML = homeVehicles.filter(c => c.type === 'supercars').map(c => createVehicleCard(c)).join('');
+            document.getElementById('hypercarsGrid').innerHTML = homeVehicles.filter(c => c.type === 'hypercars').map(c => createVehicleCard(c)).join('');
+            document.getElementById('luxuryGrid').innerHTML = homeVehicles.filter(c => c.type === 'luxury').map(c => createVehicleCard(c)).join('');
+            document.getElementById('electricGrid').innerHTML = homeVehicles.filter(c => c.type === 'electric').map(c => createVehicleCard(c)).join('');
+            document.getElementById('suvsGrid').innerHTML = homeVehicles.filter(c => c.type === 'suvs').map(c => createVehicleCard(c)).join('');
+        }
+
+        function renderParts() {
+            const cat = document.getElementById('partsCategorySelect').value;
+            const filtered = cat === 'all' ? partsData : partsData.filter(p => p.category === cat);
+            document.getElementById('partsGrid').innerHTML = filtered.map(p => `
+                <div class="vehicle-card">
+                    <div class="vehicle-img-wrap"><img src="${p.img}" loading="lazy" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';"></div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-brand">${p.category}</span>
+                        <h3 class="vehicle-model">${p.name}</h3>
+                        <div class="vehicle-price">₱${p.price.toLocaleString()}</div>
+                        <button class="btn-gold" style="margin-top:auto;" onclick="addToCartGuard('${p.id}', '${p.name}', ${p.price}, '${p.img}')">ADD TO CART</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderGallery() {
+            const cat = document.getElementById('galleryFilterSelect').value;
+            const filtered = cat === 'all' ? galleryItems : galleryItems.filter(g => g.category === cat);
+            document.getElementById('galleryGrid').innerHTML = filtered.map(g => `
+                <div class="gallery-item">
+                    <img src="${g.img}" alt="${g.title}" loading="lazy" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';">
+                    <div class="gallery-overlay">
+                        <span style="color:var(--gold-primary); font-size:11px; font-weight:700;">${g.category}</span>
+                        <h3>${g.title}</h3>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* -------------------------------------------------------------
+           STRICT AUTHENTICATION GUARDRAILS & STORAGE KEYS
+        ------------------------------------------------------------- */
+        function getUserCartKey() { return currentUser ? `delora_cart_${currentUser.email}` : null; }
+        function getUserFavKey() { return currentUser ? `delora_fav_${currentUser.email}` : null; }
+        function getUserOrderKey() { return currentUser ? `delora_orders_${currentUser.email}` : null; }
+
+        function getCart() {
+            if(!currentUser) return [];
+            return JSON.parse(localStorage.getItem(getUserCartKey())) || [];
+        }
+
+        function saveCart(cart) {
+            if(currentUser) {
+                localStorage.setItem(getUserCartKey(), JSON.stringify(cart));
+                updateCartBadge();
+            }
+        }
+
+        // CRITICAL RULE #1: STRICT ADD TO CART GUARD
+        function addToCartGuard(id, name, price, img) {
+            if (!currentUser) {
+                pendingAction = () => addToCartGuard(id, name, price, img);
+                showLoginRequiredModal();
+                return;
+            }
+
+            let cart = getCart();
+            let existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id, name, price, img, qty: 1 });
+            }
+            saveCart(cart);
+            openCartDrawer();
+        }
+
+        // CRITICAL RULE #2: STRICT CART DRAWER GUARD
+        function openProtectedCart() {
+            if (!currentUser) {
+                showLoginRequiredModal();
+                return;
+            }
+            openCartDrawer();
+        }
+
+        function openCartDrawer() {
+            renderCartItems();
+            document.getElementById('cartDrawer').classList.add('open');
+        }
+
+        function closeCartDrawer() {
+            document.getElementById('cartDrawer').classList.remove('open');
+        }
+
+        function renderCartItems() {
+            const cart = getCart();
+            const container = document.getElementById('cartItemsContainer');
+            if(cart.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color:var(--text-muted); margin-top:40px;">Your garage cart is currently empty.</p>`;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.img}" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">₱${(item.price * item.qty).toLocaleString()}</div>
+                            <div class="qty-controls">
+                                <button class="qty-btn" onclick="updateQty('${item.id}', -1)">-</button>
+                                <span>${item.qty}</span>
+                                <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+                                <button style="background:none; border:none; color:#e74c3c; margin-left:auto; cursor:pointer;" onclick="removeCartItem('${item.id}')"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const delivery = cart.length > 0 ? 250000 : 0;
+            document.getElementById('cartSubtotal').innerText = `₱${subtotal.toLocaleString()}`;
+            document.getElementById('cartDelivery').innerText = `₱${delivery.toLocaleString()}`;
+            document.getElementById('cartTotal').innerText = `₱${(subtotal + delivery).toLocaleString()}`;
+        }
+
+        function updateQty(id, delta) {
+            let cart = getCart();
+            let item = cart.find(i => i.id === id);
+            if(item) {
+                item.qty += delta;
+                if(item.qty < 1) item.qty = 1;
+            }
+            saveCart(cart);
+            renderCartItems();
+        }
+
+        function removeCartItem(id) {
+            let cart = getCart().filter(i => i.id !== id);
+            saveCart(cart);
+            renderCartItems();
+        }
+
+        function updateCartBadge() {
+            const cart = getCart();
+            const count = cart.reduce((sum, i) => sum + i.qty, 0);
+            document.getElementById('cartBadge').innerText = count;
+        }
+
+        // WISHLIST PROTECTION
+        function toggleFavoriteGuard(carId) {
+            if(!currentUser) {
+                showLoginRequiredModal();
+                return;
+            }
+            let favs = JSON.parse(localStorage.getItem(getUserFavKey())) || [];
+            if(favs.includes(carId)) {
+                favs = favs.filter(id => id !== carId);
+            } else {
+                favs.push(carId);
+            }
+            localStorage.setItem(getUserFavKey(), JSON.stringify(favs));
+            renderHomeVehicles(homeVehicles);
+        }
+
+        function isFavorite(carId) {
+            if(!currentUser) return false;
+            let favs = JSON.parse(localStorage.getItem(getUserFavKey())) || [];
+            return favs.includes(carId);
+        }
+
+        // AUTH MODAL LOGIC
+        function showLoginRequiredModal() {
+            document.getElementById('loginRequiredModal').classList.add('active');
+        }
+
+        function openLoginModal(isRegister = false) {
+            document.getElementById('authModal').classList.add('active');
+            document.getElementById('authTitle').innerText = isRegister ? "CLIENT REGISTRATION" : "CLIENT LOGIN";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('authEmail').value;
+            currentUser = { email: email, name: email.split('@')[0].toUpperCase() };
+            localStorage.setItem('delora_current_user', JSON.stringify(currentUser));
+            
+            closeModal('authModal');
+            renderUserAccountUI();
+            updateCartBadge();
+
+            if(pendingAction) {
+                pendingAction();
+                pendingAction = null;
+            }
+        }
+
+        // CRITICAL RULE #4: WORKING LOGOUT
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('delora_current_user');
+            closeCartDrawer();
+            renderUserAccountUI();
+            updateCartBadge();
+            switchTab('home');
+        }
+
+        function renderUserAccountUI() {
+            const container = document.getElementById('userAccountSection');
+            if(currentUser) {
+                container.innerHTML = `
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span style="font-size:12px; color:var(--gold-light); font-weight:600;">Welcome, ${currentUser.name}</span>
+                        <button class="btn-outline" style="padding:5px 10px; font-size:10px;" onclick="logout()">LOG OUT</button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `<button class="btn-outline" onclick="openLoginModal()">Sign In</button>`;
+            }
+        }
+
+        // DETAILS MODAL
+        function openVehicleDetails(carId) {
+            const car = homeVehicles.find(c => c.id === carId);
+            if(!car) return;
+            const body = document.getElementById('vehicleDetailsBody');
+            body.innerHTML = `
+                <button class="modal-close" onclick="closeModal('vehicleDetailsModal')"><i class="fa-solid fa-xmark"></i></button>
+                <div style="text-align:center; margin-bottom:15px;">
+                    <span style="color:var(--gold-primary); text-transform:uppercase; font-size:11px;">${car.brand}</span>
+                    <h2>${car.model}</h2>
+                </div>
+                <img src="${car.img}" style="width:100%; height:300px; object-fit:cover; border-radius:6px; margin-bottom:15px;" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';">
+                <div class="vehicle-specs" style="margin-bottom:15px;">
+                    <div class="spec-item"><span>HORSEPOWER</span><strong>${car.hp} HP</strong></div>
+                    <div class="spec-item"><span>TOP SPEED</span><strong>${car.speed}</strong></div>
+                    <div class="spec-item"><span>0-60 MPH</span><strong>${car.accel}</strong></div>
+                </div>
+                <div style="font-size:22px; font-weight:800; color:var(--gold-light); text-align:center; margin-bottom:15px;">₱${car.price.toLocaleString()}</div>
+                <button class="btn-gold" style="width:100%;" onclick="closeModal('vehicleDetailsModal'); addToCartGuard('${car.id}', '${car.brand} ${car.model}', ${car.price}, '${car.img}')">ADD TO GARAGE CART</button>
+            `;
+            document.getElementById('vehicleDetailsModal').classList.add('active');
+        }
+
+        // CHECKOUT & PAYMENT
+        function proceedToCheckout() {
+            if(!currentUser) {
+                closeCartDrawer();
+                showLoginRequiredModal();
+                return;
+            }
+            if(getCart().length === 0) return;
+            closeCartDrawer();
+            document.getElementById('checkoutModal').classList.add('active');
+        }
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+            const cart = getCart();
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const total = subtotal + 250000;
+            const orderNum = `DLR-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+
+            const newOrder = {
+                orderNumber: orderNum,
+                date: new Date().toLocaleDateString(),
+                items: cart,
+                total: total,
+                paymentMethod: document.getElementById('paymentMethodSelect').value,
+                status: 'Payment Confirmed'
+            };
+
+            let orders = JSON.parse(localStorage.getItem(getUserOrderKey())) || [];
+            orders.unshift(newOrder);
+            localStorage.setItem(getUserOrderKey(), JSON.stringify(orders));
+
+            saveCart([]);
+            closeModal('checkoutModal');
+            alert(`PAYMENT SUCCESSFUL!\n\nYour order #${orderNum} has been recorded.`);
+            switchTab('my-orders');
+        }
+
+        // GARAGE PAGE
+        function renderGaragePage() {
+            const container = document.getElementById('garageContent');
+            if(!currentUser) {
+                container.innerHTML = `
+                    <div style="text-align:center; padding:50px;">
+                        <i class="fa-solid fa-lock" style="font-size:48px; color:var(--gold-primary); margin-bottom:15px;"></i>
+                        <h2>LOGIN REQUIRED</h2>
+                        <p style="color:var(--text-muted); margin-bottom:20px;">Please sign in to view your saved wishlist vehicles.</p>
+                        <button class="btn-gold" onclick="openLoginModal()">Sign In</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const favIds = JSON.parse(localStorage.getItem(getUserFavKey())) || [];
+            const favCars = homeVehicles.filter(c => favIds.includes(c.id));
+
+            container.innerHTML = `
+                <h3 style="color:var(--gold-primary); margin-bottom:20px;">SAVED WISHLIST VEHICLES (${favCars.length})</h3>
+                <div class="vehicle-grid">
+                    ${favCars.length ? favCars.map(c => createVehicleCard(c)).join('') : '<p style="color:var(--text-muted);">No saved vehicles in your wishlist.</p>'}
+                </div>
+            `;
+        }
+
+        // ORDERS PAGE
+        function renderOrdersPage() {
+            const container = document.getElementById('ordersContent');
+            if(!currentUser) {
+                container.innerHTML = `
+                    <div style="text-align:center; padding:50px;">
+                        <i class="fa-solid fa-lock" style="font-size:48px; color:var(--gold-primary); margin-bottom:15px;"></i>
+                        <h2>LOGIN REQUIRED</h2>
+                        <p style="color:var(--text-muted); margin-bottom:20px;">Please sign in to access order history and real-time delivery tracking.</p>
+                        <button class="btn-gold" onclick="openLoginModal()">Sign In</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const orders = JSON.parse(localStorage.getItem(getUserOrderKey())) || [];
+            if(orders.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding:40px;">No order history found for this account.</p>`;
+                return;
+            }
+
+            container.innerHTML = orders.map(ord => `
+                <div style="background:var(--bg-card); border:1px solid var(--border-subtle); padding:20px; border-radius:6px; margin-bottom:20px;">
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; margin-bottom:15px;">
+                        <div>
+                            <span style="color:var(--gold-primary); font-weight:700;">ORDER #${ord.orderNumber}</span>
+                            <div style="font-size:11px; color:var(--text-muted);">${ord.date}</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:16px; font-weight:800; color:var(--gold-light);">₱${ord.total.toLocaleString()}</div>
+                            <span style="font-size:11px; color:#2ecc71;">${ord.status}</span>
+                        </div>
+                    </div>
+
+                    <div class="order-timeline">
+                        <div class="timeline-step completed"><div class="step-icon"><i class="fa-solid fa-check"></i></div><label style="font-size:10px;">Placed</label></div>
+                        <div class="timeline-step completed"><div class="step-icon"><i class="fa-solid fa-check"></i></div><label style="font-size:10px;">Confirmed</label></div>
+                        <div class="timeline-step"><div class="step-icon">3</div><label style="font-size:10px;">Preparing</label></div>
+                        <div class="timeline-step"><div class="step-icon">4</div><label style="font-size:10px;">Delivering</label></div>
+                    </div>
+
+                    <div>
+                        ${ord.items.map(i => `<div style="font-size:13px; color:#fff;">• ${i.name} (x${i.qty}) - ₱${(i.price * i.qty).toLocaleString()}</div>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // COMPARISON SYSTEM
+        function toggleCompare(carId) {
+            const index = compareList.indexOf(carId);
+            if(index > -1) {
+                compareList.splice(index, 1);
+            } else {
+                if(compareList.length >= 4) {
+                    alert("You can compare up to 4 vehicles side-by-side.");
+                    return;
+                }
+                compareList.push(carId);
+            }
+            renderCompareTable();
+            switchTab('compare');
+        }
+
+        function renderCompareTable() {
+            const container = document.getElementById('compareTableContainer');
+            if(compareList.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding:40px;">Select at least 2 vehicles to compare specifications side-by-side.</p>`;
+                return;
+            }
+
+            const cars = homeVehicles.filter(c => compareList.includes(c.id));
+            container.innerHTML = `
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>SPECIFICATION</th>
+                            ${cars.map(c => `<th>${c.brand}<br>${c.model}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Price</td>${cars.map(c => `<td>₱${c.price.toLocaleString()}</td>`).join('')}</tr>
+                        <tr><td>Horsepower</td>${cars.map(c => `<td>${c.hp} HP</td>`).join('')}</tr>
+                        <tr><td>Top Speed</td>${cars.map(c => `<td>${c.speed}</td>`).join('')}</tr>
+                        <tr><td>0-60 mph</td>${cars.map(c => `<td>${c.accel}</td>`).join('')}</tr>
+                    </tbody>
+                </table>
+            `;
+        }
+
+        // FINANCING CALCULATOR
+        function calcFinancing() {
+            const price = parseFloat(document.getElementById('finPrice').value) || 0;
+            const down = parseFloat(document.getElementById('finDown').value) || 0;
+            const months = parseInt(document.getElementById('finTerm').value) || 60;
+
+            const loan = price - down;
+            const rate = 0.05 / 12;
+            const monthly = (loan * rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+
+            document.getElementById('finMonthly').innerText = `₱${Math.max(0, Math.round(monthly)).toLocaleString()} / mo`;
+        }
+    </script>
+</body>
+</html>
